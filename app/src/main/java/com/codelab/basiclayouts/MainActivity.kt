@@ -1,3 +1,5 @@
+package com.codelab.basiclayouts
+
 /*
  * Copyright 2022 The Android Open Source Project
  *
@@ -14,24 +16,21 @@
  * limitations under the License.
  */
 
-package com.codelab.basiclayouts
 
-import android.graphics.drawable.shapes.Shape
-import android.icu.lang.UCharacter.LineBreak.H3
+
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.lazy.*
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyHorizontalGrid
 import androidx.compose.foundation.lazy.grid.items
+import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.*
-import androidx.compose.ui.res.stringResource
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.AccountCircle
 import androidx.compose.material.icons.filled.Search
@@ -42,11 +41,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.semantics.Role.Companion.Image
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.codelab.basiclayouts.ui.theme.MySootheTheme
-import com.codelab.basiclayouts.ui.theme.shapes
 import java.util.*
 
 
@@ -133,7 +131,7 @@ fun AlignYourBodyRow(
     // Implement composable here
     LazyRow(modifier = modifier, horizontalArrangement = Arrangement.spacedBy(8.dp), contentPadding = PaddingValues(horizontal = 8.dp)){
         items(alignYourBodyData){
-            item -> AlignYourBodyElement(drawable = item.drawable, text =item.text )
+                item -> AlignYourBodyElement(drawable = item.drawable, text =item.text )
         }
     }
 }
@@ -192,7 +190,7 @@ fun HomeScreen(modifier: Modifier = Modifier) {
         }
         HomeSection(title = R.string.favorite_collections) {
             FavoriteCollectionsGrid()
-            
+
         }
     }
 }
@@ -234,7 +232,7 @@ private fun SootheBottomNavigation(modifier: Modifier = Modifier) {
 fun MySootheApp() {
     MySootheTheme {
         Scaffold(bottomBar = { SootheBottomNavigation()}) {
-            paddingValues -> HomeScreen(Modifier.padding(paddingValues))
+                paddingValues -> HomeScreen(Modifier.padding(paddingValues))
 
         }
     }
@@ -290,7 +288,7 @@ fun FavoriteCollectionCardPreview() {
             imageSrc = R.drawable.fc2_nature_meditations,
             stringRes = R.string.fc2_nature_meditations,
 
-        )
+            )
     }
 }
 
